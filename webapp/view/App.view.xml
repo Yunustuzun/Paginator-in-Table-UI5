@@ -1,0 +1,62 @@
+<mvc:View controllerName="yt.sample.reportpagingSAMPLE_REPORT_PAGING.controller.App" 
+	xmlns="sap.ui.table" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:u="sap.ui.unified" 
+	xmlns:core="sap.ui.core" 
+	xmlns:m="sap.m" 
+	xmlns:f="sap.f" height="100%">
+	<m:Page showHeader="false" class="sapUiContentPadding">
+		<m:content>
+			<Table id="productTable" rows="{tableItems>/ProductCollection}" title="Products" paste="onPaste" enableCellFilter = "true" enableColumnFreeze="true" enableColumnReordering="true" showColumnVisibilityMenu="true">
+				<toolbar>
+					<m:OverflowToolbar>
+						<m:ToolbarSpacer visible="{= !${device>/system/phone} }" />
+						<m:SearchField id="searchGlobal" placeholder="Search" search="filterGlobally" width="{= !${device>/system/phone} ? '15rem' : '10rem' }" />
+						<m:Button icon="sap-icon://decline" text="{= !${device>/system/phone} ? 'Clear Filters' : '' }" press="clearAllFilters"/>
+					</m:OverflowToolbar>
+				</toolbar>
+				<columns>
+					<Column width="11rem" filterProperty="Name" sortProperty="Name">
+						<m:Label text="Product Name" />
+						<template>
+							<m:Text text="{tableItems>Name}" wrapping="false" />
+						</template>
+					</Column>
+					<Column width="11rem" filterProperty="ProductId" sortProperty="ProductId">
+						<m:Label text="Product Id" />
+						<template>
+							<m:Text text="{tableItems>ProductId}"/>
+						</template>
+					</Column>
+					<Column width="6rem" hAlign="End" filterProperty="Quantity" sortProperty="Quantity">
+						<m:Label text="Quantity" />
+						<template>
+							<m:Label text="{tableItems>Quantity}" />
+						</template>
+					</Column>
+					<Column width="9rem" filterProperty="Status" sortProperty="Status">
+						<m:Label text="Status" />
+						<template>
+							<m:ObjectStatus text="{tableItems>Status}" state="{
+								path: 'Available',
+								formatter: '.formatAvailableToObjectState'
+							}"/>
+						</template>
+					</Column>
+					<Column width="9rem" filterProperty="Price" sortProperty="Price">
+						<m:Label text="Price" />
+						<template>
+							<u:Currency value="{tableItems>Price}" currency="{tableItems>CurrencyCode}"/>
+						</template>
+					</Column>
+					<Column width="12rem" filterProperty="SupplierName" sortProperty="SupplierName">
+						<m:Label text="Supplier"/>
+						<template>
+							<m:Text text="{tableItems>SupplierName}"/>
+						</template>
+					</Column>
+				</columns>
+			</Table>
+		</m:content>
+	</m:Page>
+</mvc:View>

@@ -1,0 +1,45 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 5,
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true
+        }
+    },
+    "rules": {
+        "no-unused-vars": [
+            "warn"
+        ],
+        "no-unused-labels": [
+            "warn"
+        ],
+        "no-prototype-builtins": [
+            "off"
+        ],
+        "no-redeclare": [
+            "warn"
+        ],
+        "no-extra-semi": [
+            "warn"
+        ],
+        "no-empty": [
+            "warn"
+        ],
+        "no-useless-escape": [
+            "warn"
+        ],
+        "no-unreachable": [
+            "warn"
+        ]
+    },
+    "extends": "eslint:recommended",
+    "globals": {
+        "jQuery": true,
+        "sap": true,
+        "document": true
+    },
+    "env": {
+        "browser": true,
+        "amd": true,
+        "node": true
+    }
+}
